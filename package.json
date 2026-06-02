@@ -1,0 +1,20 @@
+{
+  "name": "veeshblog",
+  "version": "0.0.0",
+  "description": "Veesh Goldman — homepage + blog, with footnotes in the margins.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "clean": "rm -rf _site"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.5"
+  },
+  "dependencies": {
+    "markdown-it-tufte": "^1.0.1",
+    "tufte-css": "^1.8.0"
+  }
+}

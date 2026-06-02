@@ -1,0 +1,9 @@
+# build output (generated from src/)
+/_site/
+
+# deps
+/node_modules/
+
+# misc
+.DS_Store
+*.log

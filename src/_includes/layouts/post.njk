@@ -1,0 +1,12 @@
+---
+layout: layouts/base.njk
+---
+<h1>{{ title }}</h1>
+{% if subtitle %}<p class="subtitle">{{ subtitle }}</p>{% endif %}
+<p class="subtitle">
+  <time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
+</p>
+
+{{ content | safe }}
+
+<p class="subtitle"><a href="/">← all writing</a></p>

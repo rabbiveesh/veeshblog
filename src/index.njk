@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+---
+<h1>{{ site.title }}</h1>
+<p class="subtitle">{{ site.tagline }}</p>
+
+<p>
+  I created and maintain
+  <a href="https://github.com/tree-sitter-perl/tree-sitter-perl">tree-sitter-perl</a>
+  (the Perl grammar used in Zed, Neovim, Helix, and Emacs) and authored a
+  ~47k-line Perl language server in Rust. I like finding the right primitive,
+  then building the elegant thing on top of it. See
+  <a href="/projects/">projects</a> for the code.
+</p>
+
+<h2>Writing</h2>
+<ul>
+  {%- for post in collections.posts %}
+  <li>
+    <a href="{{ post.url }}">{{ post.data.title }}</a>
+    <span class="subtitle"><time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time></span>
+    {%- if post.data.subtitle %}<br /><span class="subtitle">{{ post.data.subtitle }}</span>{% endif %}
+  </li>
+  {%- else %}
+  <li class="subtitle">Nothing published yet — soon.</li>
+  {%- endfor %}
+</ul>

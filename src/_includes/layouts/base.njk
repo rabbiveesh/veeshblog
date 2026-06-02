@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if title and title != site.title %}{{ title }} · {% endif %}{{ site.title }}</title>
+    {% if description %}<meta name="description" content="{{ description }}" />{% endif %}
+    <link rel="stylesheet" href="/css/tufte.css" />
+    <link rel="stylesheet" href="/css/extra.css" />
+  </head>
+  <body>
+    <article>
+      <header class="site-header">
+        <nav>
+          {%- for item in site.nav %}
+          <a href="{{ item.url }}">{{ item.text }}</a>{% if not loop.last %} · {% endif %}
+          {%- endfor %}
+        </nav>
+      </header>
+
+      {{ content | safe }}
+
+      <footer class="site-footer">
+        <p class="subtitle">
+          {%- for link in site.links %}
+          <a href="{{ link.url }}">{{ link.text }}</a>{% if not loop.last %} · {% endif %}
+          {%- endfor %}
+        </p>
+      </footer>
+    </article>
+  </body>
+</html>

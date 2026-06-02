@@ -1,0 +1,25 @@
+/* Small tweaks layered over tufte.css (vendored at /css/tufte.css). */
+
+.site-header {
+  margin-bottom: 2rem;
+}
+
+.site-header nav a,
+.site-footer a {
+  font-size: 1.1rem;
+}
+
+.site-footer {
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(17, 17, 17, 0.15);
+}
+
+/* Tighten the post list on the blog-forward homepage. */
+ul > li {
+  margin-bottom: 0.6rem;
+}
+
+li .subtitle {
+  font-size: 0.9rem;
+}
