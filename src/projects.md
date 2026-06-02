@@ -12,8 +12,11 @@ The most legible proof is the code. Everything here is open source.
 
 A Perl language server written in Rust (`tower-lsp` + `tree-sitter`):
 annotation-free type inference, cross-file resolution, and a plugin system.
-~47k lines of Rust, written by hand. On
-[crates.io](https://crates.io/crates/perl-tree-sitter-lsp).
+Working from a real parse lets it do things that are genuinely hard otherwise —
+like context-aware completions that offer *only* array variables when you're in
+an array context. (Perl is already well served by PerlNavigator; I wanted to see
+how far the parse-driven end could go.) `cargo install perl-lsp`, or on
+[crates.io](https://crates.io/crates/perl-lsp).
 
 [github.com/tree-sitter-perl/perl-tree-sitter-lsp](https://github.com/tree-sitter-perl/perl-tree-sitter-lsp)
 
