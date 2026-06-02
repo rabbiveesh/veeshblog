@@ -30,9 +30,9 @@ famously context-sensitive, so a hand-written scanner does the heavy lifting.
 
 ## composr
 
-A Rust (`rayon` + `tree-sitter`) reimplementation of the slow path of a
-dependency resolver — the kind of thing that's only worth doing once you've
-found the right primitive to parallelize over.
+A Rust (`rayon` + `tree-sitter`) reimplementation of Composer's slowest step,
+autoload generation — parallel enough that it runs in my git hook without my
+noticing it's there.
 
 ## DBIx::Class::SQLA2
 
