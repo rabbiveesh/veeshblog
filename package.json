@@ -7,11 +7,13 @@
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve",
-    "clean": "rm -rf _site"
+    "clean": "rm -rf _site",
+    "vendor:perl-grammar": "bash scripts/vendor-perl-grammar.sh"
   },
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.5"
+    "@11ty/eleventy": "^3.1.5",
+    "web-tree-sitter": "^0.26.9"
   },
   "dependencies": {
     "markdown-it-tufte": "^1.0.1",

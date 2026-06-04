@@ -23,3 +23,161 @@ ul > li {
 li .subtitle {
   font-size: 0.9rem;
 }
+
+/* ---------------------------------------------------------------------------
+   tree-sitter-perl syntax highlighting (build-time; see lib/perl-highlight.js).
+   Muted, warm palette to sit under ET-book rather than shout over it — except
+   regex, which is left to pop, since the /-is-it-division dilemma is the post.
+   Themed by top-level capture class, with a few fully-qualified overrides.
+   --------------------------------------------------------------------------- */
+.tsp-perl > code,
+code.tsp-perl {
+  color: #33312c; /* slightly warmer than tufte's #111 for un-captured text */
+}
+
+/* keywords & keyword-like clause heads */
+.tsp-keyword,
+.tsp-include,
+.tsp-conditional,
+.tsp-repeat,
+.tsp-exception {
+  color: #8c2f1f;
+}
+
+/* functions / methods / builtins */
+.tsp-function,
+.tsp-method {
+  color: #1f5d72;
+}
+.tsp-function-builtin {
+  color: #1f5d72;
+  font-style: italic;
+}
+
+/* package / class names */
+.tsp-type {
+  color: #2e6b4f;
+}
+
+/* variables — sigil families nudged apart by hue, kept low-saturation */
+.tsp-variable-scalar {
+  color: #3a4a7a;
+}
+.tsp-variable-array {
+  color: #5a4a86;
+}
+.tsp-variable-hash {
+  color: #7a4a6e;
+}
+.tsp-variable-builtin {
+  color: #3a4a7a;
+  font-style: italic;
+}
+
+/* literals */
+.tsp-number {
+  color: #7a4a2f;
+}
+.tsp-string {
+  color: #5c6a2f;
+}
+.tsp-string-escape {
+  color: #9a5b2f;
+}
+.tsp-string-special {
+  color: #5c6a2f;
+  font-style: italic;
+}
+
+/* the star of the show: regex left bright + bordered so it reads instantly */
+.tsp-string-regex {
+  color: #a8521f;
+}
+.tsp-character-special { /* trailing regex modifiers (/g, /i, /msx) */
+  color: #a8521f;
+  font-weight: 600;
+}
+
+/* heredoc terminators, statement labels */
+.tsp-label {
+  color: #7a4a6e;
+}
+.tsp-attribute {
+  color: #2e6b4f;
+}
+
+/* structural punctuation/operators — kept near body color, low-noise */
+.tsp-operator,
+.tsp-punctuation {
+  color: #6b6862;
+}
+
+/* comments, POD, __END__/__DATA__, shebang */
+.tsp-comment,
+.tsp-text,
+.tsp-preproc {
+  color: #8a8678;
+  font-style: italic;
+}
+
+/* tree-sitter ERROR nodes — only show up on genuinely malformed snippets */
+.tsp-error {
+  text-decoration: wavy underline #c0392b;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tsp-perl > code,
+  code.tsp-perl {
+    color: #d6d2c8;
+  }
+  .tsp-keyword,
+  .tsp-include,
+  .tsp-conditional,
+  .tsp-repeat,
+  .tsp-exception {
+    color: #e0866f;
+  }
+  .tsp-function,
+  .tsp-method,
+  .tsp-function-builtin {
+    color: #6fb8cf;
+  }
+  .tsp-type,
+  .tsp-attribute {
+    color: #84c9a3;
+  }
+  .tsp-variable-scalar,
+  .tsp-variable-builtin {
+    color: #9fb0e6;
+  }
+  .tsp-variable-array {
+    color: #b9a6e6;
+  }
+  .tsp-variable-hash,
+  .tsp-label {
+    color: #e0a6cf;
+  }
+  .tsp-number {
+    color: #d6a06f;
+  }
+  .tsp-string,
+  .tsp-string-special {
+    color: #b6c46f;
+  }
+  .tsp-string-escape {
+    color: #e8a86f;
+  }
+  .tsp-string-regex,
+  .tsp-character-special {
+    color: #f0985a;
+  }
+  .tsp-operator,
+  .tsp-punctuation {
+    color: #9a968c;
+  }
+  .tsp-comment,
+  .tsp-text,
+  .tsp-preproc {
+    color: #8f8b7e;
+  }
+}
