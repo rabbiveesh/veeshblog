@@ -8,7 +8,7 @@ description: Open-source systems and language tooling by Veesh Goldman.
 
 The most legible proof is the code. Everything here is open source.
 
-## perl-tree-sitter-lsp (perl-lsp on crates.io)
+## perl-tree-sitter-lsp
 
 A Perl language server written in Rust (`tower-lsp` + `tree-sitter`):
 annotation-free type inference, cross-file resolution, and a plugin system.
@@ -39,4 +39,4 @@ noticing it's there. A Just Good Enough replacement for frictionless dev.
 
 A CPAN distribution adding window functions, CTEs, and upserts to the DBIx::Class
 ecosystem. Bridges between SQLA2 and DBIx::Class (where politics could not - iykyk).
-[https://github.com/rabbiveesh/dbic-sqla2](on github)
+[on github](https://github.com/rabbiveesh/dbic-sqla2)
