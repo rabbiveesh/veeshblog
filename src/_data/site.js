@@ -7,7 +7,7 @@ export default {
     "I build the hard, invisible parts of software — language tooling, " +
     "resilient distributed systems, and the abstractions that make complex " +
     "systems simple to use.",
-  url: "https://veesh.dev",
+  url: "https://veesh.me",
   nav: [
     { text: "Writing", url: "/" },
     { text: "Projects", url: "/projects/" },

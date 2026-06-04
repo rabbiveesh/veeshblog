@@ -13,6 +13,15 @@ export default function (eleventyConfig) {
   });
   eleventyConfig.addPassthroughCopy("src/css");
 
+  // Favicon set (SVG sources + generator live in /branding).
+  eleventyConfig.addPassthroughCopy("src/favicon.svg");
+  eleventyConfig.addPassthroughCopy("src/favicon-32.png");
+  eleventyConfig.addPassthroughCopy("src/favicon.ico");
+  eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png");
+
+  // Social-share/OG banner (LinkedIn-sourced, reused for link unfurls).
+  eleventyConfig.addPassthroughCopy("src/banner.png");
+
   // Custom-domain marker for GitHub Pages → copied to _site/CNAME on every build.
   eleventyConfig.addPassthroughCopy("src/CNAME");
 

@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% if title and title != site.title %}{{ title }} · {% endif %}{{ site.title }}</title>
     {% if description %}<meta name="description" content="{{ description }}" />{% endif %}
+
+    {# Open Graph / Twitter card — banner unfurls when the site is shared. #}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{% if title and title != site.title %}{{ title }} · {% endif %}{{ site.title }}" />
+    {% if description %}<meta property="og:description" content="{{ description }}" />{% endif %}
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <meta property="og:image" content="{{ site.url }}/banner.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="{{ site.url }}/banner.png" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/css/tufte.css" />
     <link rel="stylesheet" href="/css/extra.css" />
   </head>

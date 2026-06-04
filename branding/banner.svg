@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1584 396" width="1584" height="396">
+  <!-- LinkedIn banner: 1584x396. Bottom-left ~240px is reserved for the
+       profile-photo overlay, so all content stays upper / center-right. -->
+  <rect x="0" y="0" width="1584" height="396" fill="#1b1a18"/>
+  <!-- faint terminal-window frame -->
+  <rect x="0.5" y="0.5" width="1583" height="395" rx="0" fill="none"
+        stroke="#33312d" stroke-width="1"/>
+  <!-- window chrome dots, top-left -->
+  <circle cx="150" cy="56" r="7" fill="#3a3833"/>
+  <circle cx="176" cy="56" r="7" fill="#3a3833"/>
+  <circle cx="202" cy="56" r="7" fill="#3a3833"/>
+
+  <!-- prompt line -->
+  <text x="148" y="178" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace"
+        font-size="66" font-weight="600">
+    <tspan fill="#8d877b">~ </tspan><tspan fill="#e8a33d">$ </tspan><tspan fill="#f5efe1">veesh</tspan><tspan fill="#e8a33d"> █</tspan>
+  </text>
+
+  <!-- role -->
+  <text x="150" y="238" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace"
+        font-size="34" fill="#f5efe1">backend &amp; systems engineer</text>
+
+  <!-- the honest flex -->
+  <text x="150" y="288" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace"
+        font-size="27" fill="#8d877b">language tooling · resilient distributed systems · the hard parts, because I can</text>
+
+  <!-- handles, bottom-right (clear of the avatar overlay) -->
+  <text x="1436" y="356" text-anchor="end"
+        font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace"
+        font-size="24"><tspan fill="#e8a33d">veesh.me</tspan><tspan fill="#8d877b">  ·  github.com/rabbiveesh</tspan></text>
+</svg>

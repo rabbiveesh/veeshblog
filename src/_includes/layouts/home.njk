@@ -6,6 +6,7 @@ layout: layouts/base.njk
 
 {{ content | safe }}
 
+{%- if collections.posts | length %}
 <h2>Writing</h2>
 <ul>
   {%- for post in collections.posts %}
@@ -14,7 +15,10 @@ layout: layouts/base.njk
     <span class="subtitle"><time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time></span>
     {%- if post.data.subtitle %}<br /><span class="subtitle">{{ post.data.subtitle }}</span>{% endif %}
   </li>
-  {%- else %}
-  <li class="subtitle">Nothing published yet — soon.</li>
   {%- endfor %}
 </ul>
+{%- else %}
+<h2>Projects</h2>
+<p>No posts yet — the writing's coming. Until then, the code is the proof:
+<a href="/projects/">see what I've built →</a></p>
+{%- endif %}
