@@ -1,4 +1,5 @@
 import markdownItTufte from "markdown-it-tufte";
+import markdownItAttrs from "markdown-it-attrs";
 import { createPerlHighlighter } from "./lib/perl-highlight.js";
 
 // Init the tree-sitter-perl highlighter once, before Eleventy reads the config.
@@ -14,6 +15,9 @@ export default function (eleventyConfig) {
   // fall back to markdown-it's default escaping.
   eleventyConfig.amendLibrary("md", (md) => {
     md.use(markdownItTufte);
+    // {.fullwidth} on a solitary image → <figure class="fullwidth"> (spans
+    // into the sidenote margin, per tufte.css).
+    md.use(markdownItAttrs);
     md.set({ highlight: highlightPerl.fence });
 
     // Inline code: markdown carries no language, so opt in per page with

@@ -16,6 +16,7 @@
     "web-tree-sitter": "^0.26.9"
   },
   "dependencies": {
+    "markdown-it-attrs": "^5.0.0",
     "markdown-it-tufte": "^1.0.1",
     "tufte-css": "^1.8.0"
   }
