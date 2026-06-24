@@ -52,9 +52,12 @@ export default function (eleventyConfig) {
   // Custom-domain marker for GitHub Pages → copied to _site/CNAME on every build.
   eleventyConfig.addPassthroughCopy("src/CNAME");
 
-  // Newest-first post collection.
+  // Newest-first post collection. src/drafts/ (a symlink to a private repo,
+  // present only locally) is globbed too: drafts mix in under ./serve, but a
+  // production build drops them — see src/drafts/drafts.11tydata.js, which sets
+  // eleventyExcludeFromCollections + permalink:false when runMode is "build".
   eleventyConfig.addCollection("posts", (api) =>
-    api.getFilteredByGlob("src/posts/**/*.md").reverse()
+    api.getFilteredByGlob("src/{posts,drafts}/**/*.md").reverse()
   );
 
   // Human-readable date filter (no extra deps — uses the JS Date in front matter).
