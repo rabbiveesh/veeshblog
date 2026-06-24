@@ -1,7 +1,20 @@
 /* Small tweaks layered over tufte.css (vendored at /css/tufte.css). */
 
+/* Brand accent — the amber from the avatar/favicon (shared with the resume,
+   where it's the constant beneath the per-company colors). Bright amber for
+   non-text accents (rules, bullets); the resume's darker ochre for text-sized
+   accents, so links keep enough contrast on the cream background. */
+:root {
+  --accent: #e8a33d; /* bright amber — rules, bullets, link hover */
+  --accent-ink: #b5791e; /* darker ochre — link text (matches the resume) */
+}
+
 .site-header {
   margin-bottom: 2rem;
+  padding-bottom: 0.6rem;
+  /* Hairline amber rule under the nav — echoes the accent rule the resume
+     draws under the name. */
+  border-bottom: 1px solid rgba(232, 163, 61, 0.45);
 }
 
 .site-header nav a,
@@ -12,7 +25,23 @@
 .site-footer {
   margin-top: 4rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(17, 17, 17, 0.15);
+  /* Warm the divider to match the header rule (was a flat gray). */
+  border-top: 1px solid rgba(232, 163, 61, 0.45);
+}
+
+/* Links take the ochre; tufte builds its underline from currentColor, so the
+   underline follows for free. Hover lifts to the brighter amber. */
+a:link,
+a:visited {
+  color: var(--accent-ink);
+}
+a:hover {
+  color: var(--accent);
+}
+
+/* Amber list markers — most visible on the homepage post list. */
+article ul > li::marker {
+  color: var(--accent);
 }
 
 /* Tighten the post list on the blog-forward homepage. */
@@ -126,6 +155,15 @@ code.tsp-perl {
 }
 
 @media (prefers-color-scheme: dark) {
+  /* Lift the ochre links to a brighter amber against a dark background. */
+  a:link,
+  a:visited {
+    color: #e8b25c;
+  }
+  a:hover {
+    color: #f3c074;
+  }
+
   .tsp-perl > code,
   code.tsp-perl {
     color: #d6d2c8;

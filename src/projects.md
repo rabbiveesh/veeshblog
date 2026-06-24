@@ -57,6 +57,7 @@ Helps makes the world's most composable query builder even more composable.
 ## Robot Buddy Adventure
 
 A old school zelda-styled math RPG that I'm building with my kids (they're great at QA).
-Built in Rust using Macroquad, shipped via WASM build to [github pages](https://rabbiveesh.github.io/robot-game/index.html). The learning layer is a work in progress; an immutable store with reducers that dynamically levels the content to what the child is performing on, with a couple of different axes (CRA level, math level, problem solving level).
+Built in Rust using Macroquad. The learning layer is a work in progress; an immutable store with reducers that dynamically levels the content to what the child is performing on, with a couple of different axes (CRA level, math level, problem solving level).
 
-[github.com/rabbiveesh/robot-game](https://github.com/rabbiveesh/robot-game), play it at 
+[github.com/rabbiveesh/robot-game](https://github.com/rabbiveesh/robot-game)
+Shipped via WASM build to [Github pages](https://rabbiveesh.github.io/robot-game/index.html)
