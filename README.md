@@ -40,6 +40,39 @@ An aside with no number ^[{-} like this on-brand joke] reads as a margin note.
 
 On narrow screens each note collapses to a tappable marker (CSS only, no JS).
 
+## Analytics & résumé links
+
+[GoatCounter](https://veesh.goatcounter.com) counts pageviews — one async script
+in `base.njk`, cookieless (so no consent banner), and skipped automatically on
+localhost. Outbound clicks are also counted, as events named `out:<host><path>`.
+
+Because bots don't run JS, an ATS scanner or a LinkedIn unfurl fetching a URL
+doesn't show up as a visit. That's the point of doing this client-side.
+
+**Per-application links.** Add an entry to `src/_data/applications.js`:
+
+```js
+export default [
+  { slug: "acme", company: "Acme", role: "Staff Engineer" },
+];
+```
+
+That builds `/r/acme/` — a `noindex` page that greets the reader by name and
+meta-refreshes to the homepage (or to `to:`, if set) after two seconds. Put
+`https://veesh.me/r/acme` on Acme's copy of the résumé, and a hit on that path
+means that specific application got opened. A second hit days later usually
+means it got forwarded.
+
+The delay is deliberate: an instant refresh can cancel the analytics beacon
+before it fires, and the beacon is the whole reason the page exists.
+
+A slug that never made it into the data file isn't lost: GitHub Pages serves
+`src/404.njk` for unmatched paths with the URL intact and JS running, so it
+still logs the hit and still bounces — just without the greeting.
+
+A path beats `?utm_source=résumé` here — PDF readers and ATS parsers drop or
+mangle query strings, and paths survive copy-paste.
+
 ## Build & serve
 
 ```bash

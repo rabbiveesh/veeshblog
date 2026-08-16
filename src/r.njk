@@ -1,0 +1,12 @@
+{#- Résumé landing page. Front matter lives in r.11tydata.js; the redirect
+    itself is the <meta http-equiv="refresh"> that base.njk emits. This markup
+    is what the reader sees for those two seconds (and what they see for good,
+    if their browser has meta-refresh disabled). #}
+<h1>{{ site.title }}</h1>
+<p class="subtitle">{{ site.tagline }}</p>
+
+<p>Hi{% if app.company %}, {{ app.company }}{% endif %} — thanks for following the
+link{% if app.role %} on the {{ app.role }} résumé{% endif %}. Sending you along
+to the real site now.</p>
+
+<p><a href="{{ redirect }}">Continue →</a> (if nothing happens in a moment)</p>

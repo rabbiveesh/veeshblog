@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+permalink: /404.html
+noindex: true
+eleventyExcludeFromCollections: true
+---
+{#- GitHub Pages serves this file for any path that doesn't exist, with the
+    requested URL left in the address bar and JS running normally.
+
+    Mostly this is just the site's 404 page. The /r/ branch below is a safety
+    net: a résumé slug that never made it into src/_data/applications.js still
+    logs the hit and still bounces, instead of dead-ending. Real entries build
+    their own page and never reach here. #}
+<h1>{{ site.title }}</h1>
+<p class="subtitle">{{ site.tagline }}</p>
+
+<div id="resume-note" hidden>
+  <p>Thanks for following the link — sending you along to the site now.</p>
+  <p><a href="/">Continue →</a> (if nothing happens in a moment)</p>
+</div>
+
+<div id="not-found">
+  <p>There's nothing at this address. Likely a typo, or something I moved.</p>
+  <p><a href="/">Writing</a> · <a href="/projects/">Projects</a></p>
+</div>
+
+<script>
+  // An unregistered résumé slug — greet generically, then bounce. The delay is
+  // deliberate: an instant redirect can cancel the GoatCounter beacon before
+  // it fires, and logging the hit is the entire point of the URL.
+  if (location.pathname.indexOf("/r/") === 0) {
+    document.getElementById("not-found").hidden = true;
+    document.getElementById("resume-note").hidden = false;
+    setTimeout(function () {
+      location.replace("/");
+    }, 1500);
+  }
+</script>

@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% if title and title != site.title %}{{ title }} · {% endif %}{{ site.title }}</title>
     {% if description %}<meta name="description" content="{{ description }}" />{% endif %}
+    {% if noindex %}<meta name="robots" content="noindex, nofollow" />{% endif %}
+    {#- Résumé landing pages (/r/<company>/) bounce onward. The 2s delay is
+        deliberate: a 0-second refresh can cancel the analytics beacon below
+        before it fires, and the hit is the entire point of the page. #}
+    {% if redirect %}<meta http-equiv="refresh" content="2; url={{ redirect }}" />{% endif %}
 
     {# Open Graph / Twitter card — banner unfurls when the site is shared. #}
     <meta property="og:type" content="website" />
@@ -42,5 +47,27 @@
         </p>
       </footer>
     </article>
+
+    {#- GoatCounter: cookieless pageview counting (no consent banner needed).
+        count.js skips localhost by itself, so ./serve doesn't pollute the
+        stats. Bots don't run JS, which is why link-unfurl and ATS-scanner
+        fetches of a /r/ URL don't show up as visits. #}
+    <script data-goatcounter="https://veesh.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+    <script>
+      // Outbound clicks as GoatCounter events. On a résumé landing page this is
+      // the second signal worth having: not just "they arrived", but "they
+      // clicked through to the LSP repo".
+      document.addEventListener("click", function (e) {
+        var a = e.target.closest && e.target.closest("a[href^='http']");
+        if (!a || a.host === location.host) return;
+        if (!window.goatcounter || !window.goatcounter.count) return;
+        window.goatcounter.count({
+          path: "out:" + a.host + a.pathname,
+          title: (a.textContent || "").trim(),
+          event: true,
+        });
+      });
+    </script>
   </body>
 </html>
