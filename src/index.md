@@ -11,3 +11,7 @@ It's a pattern. I also created and maintain
 [tree-sitter-perl](https://github.com/tree-sitter-perl/tree-sitter-perl), the
 Perl grammar behind Zed, Neovim, Helix, and Emacs, and the composable primitive a
  [lot](https://github.com/Wilfred/difftastic) of [other](https://github.com/duysolo/codebaxing) [tools](https://github.com/accionlabs/breezeai-code-ontology-generator) quietly [build](https://github.com/acrion/tree-sitter-raku) [on](https://github.com/jtyr/tree-sitter-grammars) — from [structural](https://crates.io/crates/readseek) [diffs](https://github.com/Ataraxy-Labs/sem) to [code](https://github.com/bitbottrap/codegraphcontext-perl) [graphs](https://github.com/Eric-Song-Nop/codemirror-treesitter) and [more](https://crates.io/crates/meta-language).
+
+I do the same thing on Day 2 as on Day 1. I spend a lot of time unwinding the crazy crosswires
+that the world hands us^[sometimes the world is me, also]. Once everything looks like a system, debugging goes from
+hair-pulling to gripping. More on this below.
