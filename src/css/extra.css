@@ -219,3 +219,12 @@ code.tsp-perl {
     color: #8f8b7e;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Utility: keep an inline code span from breaking across lines. Opt in with
+   markdown-it-attrs, e.g. `docker compose up -d`{.nowrap} — preferred over
+   non-breaking spaces, which survive copy-paste into a shell and then fail.
+   --------------------------------------------------------------------------- */
+code.nowrap {
+  white-space: nowrap;
+}
