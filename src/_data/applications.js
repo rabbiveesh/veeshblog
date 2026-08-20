@@ -24,4 +24,5 @@ export default [
   // Cover-letter link: lands on the post the letter talks about, not the homepage.
   { slug: "zipline-cover", company: "Zipline", role: "Staff Engineer", to: "/posts/sound-of-silence/" },
   { slug: "gloat", company: "Gloat", role: "Senior Backend Engineer" },
+  { slug: "zocdoc", company: "Zocdoc", role: "Staff Software Engineer" },
 ];
