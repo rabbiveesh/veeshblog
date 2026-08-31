@@ -25,4 +25,5 @@ export default [
   { slug: "zipline-cover", company: "Zipline", role: "Staff Engineer", to: "/posts/sound-of-silence/" },
   { slug: "gloat", company: "Gloat", role: "Senior Backend Engineer" },
   { slug: "zocdoc", company: "Zocdoc", role: "Staff Software Engineer" },
+  { slug: "skai", company: "Skai", role: "Lead AI Software Engineer" },
 ];
