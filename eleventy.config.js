@@ -1,5 +1,6 @@
 import markdownItTufte from "markdown-it-tufte";
 import markdownItAttrs from "markdown-it-attrs";
+import { minify } from "terser";
 import { createPerlHighlighter } from "./lib/perl-highlight.js";
 
 // Init the tree-sitter-perl highlighter once, before Eleventy reads the config.
@@ -63,6 +64,39 @@ export default function (eleventyConfig) {
   eleventyConfig.addCollection("posts", (api) =>
     api.getFilteredByGlob("src/{posts,drafts}/**/*.md").reverse()
   );
+
+  // Strip comments from the inline <script> blocks on the way out. The source
+  // comments explain *why* the analytics hooks look the way they do — worth
+  // keeping in the templates, not worth shipping to every reader. Terser parses
+  // the JS properly, so a `//` inside a string or regex survives; a regex
+  // stripper wouldn't. Build-only (matching the drafts rule below), so ./serve
+  // still shows readable, debuggable JS in devtools.
+  eleventyConfig.addTransform("strip-inline-js-comments", async function (content) {
+    if (process.env.ELEVENTY_RUN_MODE !== "build") return content;
+    if (!(this.page.outputPath || "").endsWith(".html")) return content;
+
+    const blocks = [];
+    // Only bodied, plain-JS scripts: `src=` blocks are empty, and a type= that
+    // isn't JS (JSON-LD, an import map) isn't terser's to parse.
+    content.replace(
+      /<script(?![^>]*\bsrc=)(?![^>]*\btype=(?!["']?(?:text\/javascript|module)))([^>]*)>([\s\S]*?)<\/script>/gi,
+      (match, attrs, body, offset) => {
+        if (body.trim()) blocks.push({ attrs, body, offset, length: match.length });
+        return match;
+      }
+    );
+    if (!blocks.length) return content;
+
+    let out = content;
+    // Back to front, so earlier offsets stay valid as the string shrinks.
+    for (const block of blocks.reverse()) {
+      const result = await minify(block.body, { format: { comments: false } });
+      const head = out.slice(0, block.offset);
+      const tail = out.slice(block.offset + block.length);
+      out = head + `<script${block.attrs}>${result.code}</script>` + tail;
+    }
+    return out;
+  });
 
   // Human-readable date filter (no extra deps — uses the JS Date in front matter).
   eleventyConfig.addFilter("readableDate", (d) =>
