@@ -28,4 +28,6 @@ export default [
   { slug: "skai", company: "Skai", role: "Lead AI Software Engineer" },
   { slug: "crossriver", company: "Cross River", role: "Staff Software Engineer" },
   { slug: "helsing", company: "Helsing", role: "Staff Backend Engineer" },
+  { slug: "drivenets", company: "DriveNets", role: "Principal Engineer" },
+  { slug: "fireblocks", company: "Fireblocks", role: "Staff Engineer, AI Platform" },
 ];
