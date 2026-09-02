@@ -30,4 +30,5 @@ export default [
   { slug: "helsing", company: "Helsing", role: "Staff Backend Engineer" },
   { slug: "drivenets", company: "DriveNets", role: "Principal Engineer" },
   { slug: "fireblocks", company: "Fireblocks", role: "Staff Engineer, AI Platform" },
+  { slug: "inkind", company: "inKind", role: "Senior Platform Engineer" },
 ];
