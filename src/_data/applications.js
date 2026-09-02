@@ -26,4 +26,6 @@ export default [
   { slug: "gloat", company: "Gloat", role: "Senior Backend Engineer" },
   { slug: "zocdoc", company: "Zocdoc", role: "Staff Software Engineer" },
   { slug: "skai", company: "Skai", role: "Lead AI Software Engineer" },
+  { slug: "crossriver", company: "Cross River", role: "Staff Software Engineer" },
+  { slug: "helsing", company: "Helsing", role: "Staff Backend Engineer" },
 ];
