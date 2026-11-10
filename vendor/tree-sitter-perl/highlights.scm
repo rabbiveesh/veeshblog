@@ -87,6 +87,7 @@
 (require_expression (bareword) @type)
 
 (subroutine_declaration_statement name: (bareword) @function)
+(subroutine_declaration_statement name: (bareword) (prototype) @punctuation.bracket)
 (method_declaration_statement name: (bareword) @method)
 (attribute_name) @attribute
 (attribute_value) @string
@@ -117,6 +118,7 @@
   [(varname) (filehandle)] @variable.builtin
   (#match? @variable.builtin "^((ENV|ARGV|INC|ARGVOUT|SIG|STDIN|STDOUT|STDERR)|[_ab]|\\W|\\d+|\\^.*)$")
 )
+(filehandle (varname)) @variable
 
 [(array) (arraylen)] @variable.array
 (glob) @variable.builtin
@@ -160,3 +162,7 @@
     "{" @punctuation.special
     "}" @punctuation.special))
 
+((_
+    (autoquoted_bareword)
+    (bareword) @constant)
+)
